@@ -13,6 +13,7 @@ public:
                 if(intervals[j][0] <= end) {
                     end = max(end,intervals[j][1]);
                 }
+                else break;
             }
             ans.push_back({start,end});
         }
