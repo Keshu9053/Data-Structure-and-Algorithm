@@ -1,16 +1,17 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-       map<int,int>mp;
-       int count = 0;
-       int n = nums.size();
-
-       for(int i = 0;i<n;++i) {
-           mp[nums[i]]++;
-       } 
-       for(int i = 0;i<n;++i) {
-           if(mp[nums[i]] == 1) return nums[i];
+       int ans = 0;
+       for(int i = 0; i<32 ; ++i) {
+           int sum = 0;
+           for(int j = 0; j<nums.size(); ++j) {
+               if((nums[j] >> i)&1 == 1) sum++; 
+           }
+           sum %= 3;
+           if(sum != 0) {
+               ans |= sum << i;
+           }
        }
-    return -1;
+       return ans;
     }
 };
