@@ -1,7 +1,7 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        if(nums[0] == 0) return 0; 
+        // if(nums[0] == 0) return 0; 
         int jump = 0;
         int des = 0;
         int pos = 0;
